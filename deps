@@ -1,0 +1,21 @@
+#!/bin/bash
+
+dir=$1
+
+if [[ $dir == "" ]]; then
+    dir=`pwd`
+fi
+
+
+function installGopack {
+    if ! gopackLoc="$(type -p "gopacks")" || [ -z "gopacks" ]; then
+        echo "start get gopacks"
+        go get -u github.com/1kf/gopacks
+    fi
+}
+
+
+installGopack
+
+gopacks -dir=$dir | sort | uniq
+
