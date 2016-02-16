@@ -92,7 +92,8 @@ func walk(dir string) {
 			}
 
 			for _, pkg := range pkgs {
-				fmt.Println(pkg)
+				v := pkg[1 : len(pkg)-1]
+				fmt.Println(v)
 			}
 		}
 
